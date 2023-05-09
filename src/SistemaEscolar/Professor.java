@@ -1,3 +1,4 @@
+package SistemaEscolar;
 
 import java.util.Scanner;
 
@@ -11,8 +12,8 @@ import java.util.Scanner;
  * @author rafae
  */
 public class Professor extends Pessoa{
-    private String login = "andrea";
-    private int senha = 123;
+    private String login;
+    private String senha;
     
 
     public String getLogin() {
@@ -23,28 +24,29 @@ public class Professor extends Pessoa{
         this.login = login;
     }
 
-    public int getSenha() {
+    public String getSenha() {
         return senha;
     }
 
-    public void setSenha(int senha) {
+    public void setSenha(String senha) {
         this.senha = senha;
     }
     
     
     
-    public void fazerLogin(){
+    public boolean fazerLogin(){
         //professor professor1 = new Professor();
         Scanner sc = new Scanner(System.in);
         System.out.println("login : ");
-        String login1 = sc.nextLine();
+         login = sc.next();
         System.out.println("senha : ");
-        int senha1 = sc.nextInt();
-        //if (login1.equals(professor1.getLogin()) && senha1 == professor1.getSenha()) {
-        if (login1.toLowerCase().equals(getLogin().toLowerCase()) && senha1 == getSenha()){
+         senha = sc.next();
+        if (login.equalsIgnoreCase("andrea") && senha.equalsIgnoreCase("123")) {
             System.out.println("logado"); 
+            return true;
         }else{
-            System.out.println("Login ou senha inválidos, tente novamente.");
+        	System.out.println("Login ou senha inválidos, tente novamente.");
+            return false;
         }
         
     }
@@ -53,4 +55,18 @@ public class Professor extends Pessoa{
         System.out.println("Professor : " + login );
     }
     
+    public void Salario() {
+    	Scanner sc = new Scanner(System.in);
+    	int horasTrabalhadas = 0;
+    	double valorHora = 0;
+    	double salario;
+    	
+    	System.out.println("Digite o valor de sua hora de trabalho");
+    	valorHora = sc.nextDouble();
+    	System.out.println("Digite a quantidade de horas trabalhas no mes");
+    	horasTrabalhadas = sc.nextInt();
+    	
+    	salario = valorHora * horasTrabalhadas;
+    	System.out.println("Salario : " + salario);
+    }
 }
