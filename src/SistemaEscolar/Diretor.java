@@ -1,3 +1,4 @@
+package SistemaEscolar;
 
 import java.util.Scanner;
 
@@ -11,26 +12,30 @@ import java.util.Scanner;
  * @author rafae
  */
 public class Diretor extends Pessoa{
-    private String login = "renata";
-    private int senha = 1234;
+    private String login;
+    private String senha;
 
     public String getLogin() {
         return login;
     }
 
-    public int getSenha() {
+    public String getSenha() {
         return senha;
     }
     
-    public void loginDiretor(){
+    public boolean loginDiretor(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Login: ");
-        String login1 = sc.nextLine();
-        System.out.println("Password : ");
-        int password = sc.nextInt();
-        if (login1.toLowerCase().equals(getLogin().toLowerCase()) && password == getSenha()){
+         login = sc.nextLine();
+        System.out.println("Senha : ");
+         senha = sc.nextLine();
+        if (login.equalsIgnoreCase("renata") && senha.equalsIgnoreCase("1234")){
             System.out.println("logado"); 
-        } else {System.out.println("Login ou senha inválidos, tente novamente.");}
+            return true;
+        } else {
+        	System.out.println("Login ou senha inválidos, tente novamente.");
+        	return false;
+        }
     }
     
 }
